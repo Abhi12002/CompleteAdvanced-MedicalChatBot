@@ -138,6 +138,19 @@ Visit: <a href="http://localhost:8080">http://localhost:8080</a>
 
 ---
 
+### 🧩 Pinecone Index (Serverless)
+
+The project uses a Pinecone **Serverless** index for semantic retrieval.
+
+- **Index name:** `medical-chatbot`  
+- **Region:** `us-east-1`  
+- **Dimension:** `384` (matches `sentence-transformers/all-MiniLM-L6-v2`)  
+
+| Pinecone Console |
+|:----------------:|
+| <img src="Pinecone.png" alt="Pinecone index medical-chatbot in us-east-1 with 384-dim serverless configuration" /> |
+
+
 <a name="usage"></a>  
 ## 💡 Usage  
 - Open the web interface in your browser<br>  
