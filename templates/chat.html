@@ -49,6 +49,9 @@
             <button id="themeToggle" class="btn btn-sm btn-outline-light" title="Toggle theme">
               <i class="fas fa-adjust"></i>
             </button>
+            <button id="clearChat" class="btn btn-sm btn-outline-light ml-2" title="Clear conversation">
+                <i class="fas fa-trash"></i>
+            </button>
           </div>
         </div>
 
@@ -132,6 +135,19 @@
           scrollBottom();
         });
       });
+
+      $("#clearChat").on("click", function (e) {
+        e.preventDefault();                       // safety, in case it's an <a>
+        const $btn = $(this).prop("disabled", true);
+
+      $.post("/clear")              // backend can just return 204
+        .always(function () {
+          $list.empty();            // wipe messages
+          $typing.addClass("d-none");
+          $input.val("").focus();   // ready for new convo
+          $btn.prop("disabled", false);
+        });
+    });
 
       $toggle.on("click", function(){
         document.documentElement.classList.toggle("light");

@@ -49,6 +49,10 @@ rag_chain = create_retrieval_chain(retriever, question_answer_chain)
 def index():
     return render_template('chat.html')
 
+@app.post("/clear")
+def clear():
+    return ("", 204)
+
 @app.route("/get", methods=["GET", "POST"])
 def chat():
     msg = request.form["msg"]
